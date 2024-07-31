@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Game</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        body {
+            background-size: cover;
+            background-position: center;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            margin-top: 20px;
+            max-width: 700px;
+            margin: auto;
+            padding: 20px;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+        }
+
+        .memory-game {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            width: 80%;
+            margin: 50px auto;
+        }
+
+        .memory-card {
+            width: 100px;
+            height: 100px;
+            position: relative;
+            transform: scale(1);
+            transform-style: preserve-3d;
+            transition: transform 0.5s;
+        }
+
+        .memory-card.flip .front-face {
+            transform: rotateY(0);
+        }
+
+        .memory-card.flip .back-face {
+            transform: rotateY(180deg);
+        }
+
+        .front-face,
+        .back-face {
+            width: 100%;
+            height: 100%;
+            border-radius: 5px;
+            position: absolute;
+            backface-visibility: hidden;
+        }
+
+        .front-face {
+            background-color: #4f8fef;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2em;
+            transform: rotateY(180deg);
+        }
+
+        .back-face {
+            background-color: #eee;
+        }
+
+        .matched {
+            background-color: lightgreen !important;
+        }
+
+        h1 {
+            color: rgb(9, 9, 9);
+        }
+
+        p {
+            color: rgb(16, 16, 16);
+        }
+    </style>
+</head>
+
+<body class="mt-4">
+
+    <div class="container text-center ">
+        <h1>Memory Game</h1>
+        <div class="memory-game">
+            <!-- Cards will be dynamically generated here -->
+        </div>
+        <p id="attempts">Attempts: 0</p>
+        <p id="message"></p>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src="memory-game.js"></script>
+</body>
+
+</html>
